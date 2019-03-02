@@ -8,3 +8,6 @@ Changes to previous version:
 
 ### PCB
 ![PCB V105 Image](https://github.com/InaSusnoschi/train-A-wear/blob/master/Hardware/Sensor-Board/V105/PCB_V05.png "PCB 1.05")
+
+### Schematic
+![Schematic V105 Image](https://github.com/InaSusnoschi/train-A-wear/blob/master/Hardware/Sensor-Board/V105/Board_V05.png "Schematic 1.05")
