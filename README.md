@@ -6,6 +6,18 @@
 This uses a Raspberry Pi and three Inertial Measurement Units that detect position and orientation of the body segments they are palced on.
 
 ## Prerequisites
+Inertial Measurement Unit train-box
+
 Android smartphone 
 
 ## Installing
+
+
+## Documentation
+
+### Examples
+Using IMU data to obtain body position and orientation.
+
+Decision loops for workout feedback.
+
+Real time data plotting on smartphone (php)
