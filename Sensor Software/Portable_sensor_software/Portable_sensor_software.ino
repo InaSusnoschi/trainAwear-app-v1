@@ -7,6 +7,9 @@
  *  
  */
 
+// Doc reference for ticker stuff:  https://arduino-esp8266.readthedocs.io/en/latest/libraries.html
+// Doc reference for UDP packets:   https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/udp-class.html
+
 #include <ESP8266WiFi.h>
 #include <WiFiUDP.h>
 #include <Ticker.h>
