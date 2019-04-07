@@ -9,24 +9,38 @@
 
 // Doc reference for ticker stuff:  https://arduino-esp8266.readthedocs.io/en/latest/libraries.html
 // Doc reference for UDP packets:   https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/udp-class.html
+// Reference for storing remoteIP as IPAddress (search for IPAddress): https://tttapa.github.io/ESP8266/Chap14%20-%20WebSocket.html
+
 
 #include <ESP8266WiFi.h>
+#include <ESP8266WiFiMulti.h>
 #include <WiFiUDP.h>
 #include <Ticker.h>
+//#include <Ethernet.h> IPAddress might be resolved without it. Give it a try first?
 
 
-#define SERVICE_PORT      31415
+#define UDP_PORT          31415
 #define ROUTINE_PERIOD_MS 50 
 
 Ticker timedRoutines;
 
+// WiFi Variables
+ESP8266WiFiMulti wifiManager;
+const char *ssid_1 = "*";
+const char *pass_1 = "*";
+const char *ssid_2 = "rank510iot";
+const char *pass_2 = "raspberry";
+
 
 // UDP Variables
-WiFiUDP UDP;
-
+WiFiUDP   UDP;
+IPAddress serverIP;
+bool      gotServerIP;
 
 // Programme variables
-char[] newData;
+char newData[UDP_TX_PACKET_MAX_SIZE];
+char receivedData[UDP_TX_PACKET_MAX_SIZE];
+
 
 /**
  *  A function that polls the sensor over I2C. It updates the 
@@ -48,7 +62,7 @@ void pollSensor(){
  * returns: char []
  */
 
-char[] makePayload(){
+void makePayload(char* dataBuffer){
   
 }
 
@@ -59,8 +73,8 @@ char[] makePayload(){
  * returns: void
  */
 
-void sendUDP(char[] payload){
-  UDP.beginPacket(UDP.remoteIP(), SERVICE_PORT);
+void sendUDP(char* payload){
+  UDP.beginPacket(UDP.remoteIP(), UDP_PORT);
   UDP.write(payload, sizeof(payload));
   UDP.endPacket();
 }
@@ -74,14 +88,39 @@ void sendUDP(char[] payload){
 
 void readAndTransmit(){
   pollSensor();
-  newData = makePayload();
+  makePayload(newData);
   sendUDP(newData);
 }
 
 
 void setup() {
-  // put your setup code here, to run once:
+  Serial.begin(115200);
+  Serial.println();
 
+  gotServerIP = false;
+
+  // Add known APs to the manager
+  wifiManager.addAP(ssid_1, pass_1);
+  wifiManager.addAP(ssid_2, pass_2);
+
+  Serial.println("Connecting to known WiFi APs.");
+
+  // Keep trying to connect to the strongest WiFi network nearby
+  while (wifiManager.run() != WL_CONNECTED){
+    delay(500);
+    Serial.print('.');
+  }
+  Serial.println();
+
+  // Print out network name and local IP address
+  Serial.print("Connected to :");
+  Serial.println(WiFi.SSID());
+  Serial.print("IP: \t");
+  Serial.println(WiFi.localIP());
+
+  // Start listening to UDP port
+  UDP.begin(UDP_PORT);
+  Serial.printf("Now listening at IP %s, UDP port %d\n", WiFi.localIP().toString().c_str(), UDP_PORT);
 
   // Initialises a ticker that calls the routine every so many ms
   timedRoutines.attach_ms(ROUTINE_PERIOD_MS, readAndTransmit);
