@@ -13,7 +13,9 @@ Inertial Measurement Unit train-box
   <li> Android SDK 27 </li>
   <li> Android Build tools v27.0.2 </li>
   <li> Android Support Repository </li>
+  <li> compile 'com.synnapps:carouselview:0.1.5' in Gradle file</>
 </ul>
+
 
 ## Installing
 
