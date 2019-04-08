@@ -94,7 +94,7 @@ void readAndTransmit(){
 
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(74880);
   Serial.println();
 
   gotServerIP = false;
