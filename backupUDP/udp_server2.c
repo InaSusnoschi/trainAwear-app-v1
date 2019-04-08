@@ -56,21 +56,22 @@ int main(void){
 	// retrieve data in packet
 	client_addr_len = sizeof(struct sockadddr_storage *);
 	while((rlen = recvfrom(fd, buffer, BUFFER_LENGTH, flags, (struct sockaddr *) &client_addr, &client_addr_len)) > 0){
-		int i;
-		for (i=0; i<rlen; i++){
-			printf("%c", buffer[i]);
-		}
+		
+		printf("%s", buffer);
+		
 //		sendto(fd, "ACK %c", BUFFER_LENGTH, flags, (struct sockaddr *)&client_addr, sizeof(client_addr));
-		int r = rand() %50;
+		int r = rand() %5;
 		//int length = snprintf(NULL,0,"%d",r);
 		//char* str = malloc(length+1);
 		//snprintf(str, length+1, "%d", r)
-		int send = 1;	
-		while (send<10){
-			sprintf(buffer, "%d", r);
-			sendto(fd, buffer, strlen(buffer), flags, (struct sockaddr *)&client_addr, sizeof(client_addr));
-			send++;	
-		}
+		
+		sleep(1);		
+
+		sprintf(buffer, "%d",r);
+		sendto(fd, buffer, strlen(buffer), flags, (struct sockaddr *)&client_addr, sizeof(client_addr));
+		printf("%s\n", buffer);
+		sleep(1);			
+		
 
 		//written = sprintf(randomnumber, "%f \n",r);
 //		sendto(fd, randomnumber, written,  flags, (struct sockaddr *)&client_addr, sizeof(client_addr));
