@@ -8,7 +8,14 @@ This uses a Raspberry Pi and three Inertial Measurement Units that detect positi
 ## Prerequisites
 Inertial Measurement Unit train-box
 
-Android smartphone 
+### Android app:
+<ul>
+  <li> Android SDK 27 </li>
+  <li> Android Build tools v27.0.2 </li>
+  <li> Android Support Repository </li>
+  <li> compile 'com.synnapps:carouselview:0.1.5' in Gradle file</>
+</ul>
+
 
 ## Installing
 
