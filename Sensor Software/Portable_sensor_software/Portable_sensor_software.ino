@@ -26,11 +26,12 @@ Ticker timedRoutines;
 
 // WiFi Variables
 ESP8266WiFiMulti wifiManager;
-const char *ssid_1 = "*";
-const char *pass_1 = "*";
+const char *ssid_1 = "x";
+const char *pass_1 = "x";
 const char *ssid_2 = "rank510iot";
 const char *pass_2 = "raspberry";
 
+const char *handshake = "train-A-wear online";
 
 // UDP Variables
 WiFiUDP   UDP;
@@ -74,8 +75,8 @@ void makePayload(char* dataBuffer){
  */
 
 void sendUDP(char* payload){
-  UDP.beginPacket(UDP.remoteIP(), UDP_PORT);
-  UDP.write(payload, sizeof(payload));
+  UDP.beginPacket(serverIP, UDP_PORT);
+  UDP.write(payload);
   UDP.endPacket();
 }
 
@@ -113,20 +114,40 @@ void setup() {
   Serial.println();
 
   // Print out network name and local IP address
-  Serial.print("Connected to :");
+  Serial.print("Connected to: ");
   Serial.println(WiFi.SSID());
-  Serial.print("IP: \t");
+  Serial.print("IP: ");
   Serial.println(WiFi.localIP());
+  Serial.print("Port: ");
+  Serial.println(UDP_PORT);
 
   // Start listening to UDP port
   UDP.begin(UDP_PORT);
-  Serial.printf("Now listening at IP %s, UDP port %d\n", WiFi.localIP().toString().c_str(), UDP_PORT);
+
+  while (!gotServerIP){
+    int packetSize = UDP.parsePacket();
+    if (packetSize)
+    {
+      // Read incoming UDP packets
+      Serial.printf("Received %d bytes from %s, port %d\n", packetSize, UDP.remoteIP().toString().c_str(), UDP.remotePort());
+      int len = UDP.read(receivedData, UDP_TX_PACKET_MAX_SIZE);
+      if (len > 0)
+      {
+        receivedData[len] = 0;
+      }
+      Serial.printf("UDP packet contents: %s", receivedData);
+      if (strncmp(receivedData, handshake, 19) == 0){
+        serverIP = UDP.remoteIP();
+        gotServerIP = true;
+        Serial.printf("train-A-wear server discovered at: %s\n", serverIP.toString().c_str());
+      }
+    }
+  }
 
   // Initialises a ticker that calls the routine every so many ms
-  timedRoutines.attach_ms(ROUTINE_PERIOD_MS, readAndTransmit);
+  //timedRoutines.attach_ms(ROUTINE_PERIOD_MS, readAndTransmit);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-
 }
