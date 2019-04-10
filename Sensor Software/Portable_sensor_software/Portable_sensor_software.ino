@@ -26,8 +26,8 @@ Ticker timedRoutines;
 
 // WiFi Variables
 ESP8266WiFiMulti wifiManager;
-const char *ssid_1 = "x";
-const char *pass_1 = "x";
+const char *ssid_1 = "*";
+const char *pass_1 = "*";
 const char *ssid_2 = "rank510iot";
 const char *pass_2 = "raspberry";
 
@@ -123,7 +123,8 @@ void setup() {
 
   // Start listening to UDP port
   UDP.begin(UDP_PORT);
-
+  Serial.println("Listening for UDP packets.");
+  
   while (!gotServerIP){
     int packetSize = UDP.parsePacket();
     if (packetSize)
