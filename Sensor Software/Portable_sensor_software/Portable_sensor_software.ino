@@ -31,7 +31,7 @@ const char *pass_1 = "*";
 const char *ssid_2 = "rank510iot";
 const char *pass_2 = "raspberry";
 
-const char *handshake = "train-A-wear online";
+const char *handshake = "train-A-wear online\n";
 
 // UDP Variables
 WiFiUDP   UDP;
@@ -127,8 +127,7 @@ void setup() {
   
   while (!gotServerIP){
     int packetSize = UDP.parsePacket();
-    if (packetSize)
-    {
+    if (packetSize){
       // Read incoming UDP packets
       Serial.printf("Received %d bytes from %s, port %d\n", packetSize, UDP.remoteIP().toString().c_str(), UDP.remotePort());
       int len = UDP.read(receivedData, UDP_TX_PACKET_MAX_SIZE);
@@ -137,7 +136,7 @@ void setup() {
         receivedData[len] = 0;
       }
       Serial.printf("UDP packet contents: %s", receivedData);
-      if (strncmp(receivedData, handshake, 19) == 0){
+      if (strncmp(receivedData, handshake, strlen(handshake)) == 0){
         serverIP = UDP.remoteIP();
         gotServerIP = true;
         Serial.printf("train-A-wear server discovered at: %s\n", serverIP.toString().c_str());
@@ -151,4 +150,5 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+
 }
