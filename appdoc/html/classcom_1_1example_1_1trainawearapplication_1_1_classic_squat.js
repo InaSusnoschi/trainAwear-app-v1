@@ -1,0 +1,27 @@
+var classcom_1_1example_1_1trainawearapplication_1_1_classic_squat =
+[
+    [ "clientEnd", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#a8f22682b2ad8898b8242090342c1ab53", null ],
+    [ "enterSquatInstr", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#af11bf43a5c57edf97320d8662fc343a1", null ],
+    [ "getInstruction", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#ab2575cf1007e1d844a98e511b93aaf8d", null ],
+    [ "onCreate", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#afa5582341ba5a9609e4eb7d539741e6a", null ],
+    [ "setInstruction", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#a3a096fd4064cf28568fd13336c77d28f", null ],
+    [ "setViewText", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#ab193e39e2f1255fd88d0508cfe7a63ff", null ],
+    [ "showFeedback", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#a1904cfcfcc9d0e3f1256202a8f7ad33e", null ],
+    [ "buttonConnect", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#a3440f30328b7562e110dd8c18b383173", null ],
+    [ "buttonConnectOnClickListener", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#ace73442a5216f7ba8af6c52493a02261", null ],
+    [ "buttonDisconnect", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#a21830f347f9c87c434a386343a40b9e0", null ],
+    [ "buttonDisonnectOnClickListener", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#af910d4182e1e041e1adee94f39268aa3", null ],
+    [ "instruction", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#a3cbf1db0a5560d931ebdaa407a1a6285", null ],
+    [ "messageView", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#a7a13bea1e66bb87427aa5974ebae838e", null ],
+    [ "num", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#ab4316fd702bd0c189fa793dc41f2995e", null ],
+    [ "PORT", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#a28250169a237362b6ab0a7412cd12da6", null ],
+    [ "squatImages", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#af799c82f2b94685d95b462b3df104344", null ],
+    [ "squatImagesTitle", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#a3a3fa8bda7ea911bae8e086e0e5e86dc", null ],
+    [ "TAG", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#ae6a47d8f52c7e129b5c4e5aa43cec9b8", null ],
+    [ "textFeedback", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#abe99a555b09158d10bcc52c92af69341", null ],
+    [ "textViewRx", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#ade810bed698597e4093219510d9025ef", null ],
+    [ "textViewState", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#ad8bc903195e44df7325c5d029c5d25a3", null ],
+    [ "udpClientHandler", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#a2fd124851e56c8d1a8c7bdbf8fdd8796", null ],
+    [ "udpListener", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#a5c6683281be124ed40b4ad73bcec89fc", null ],
+    [ "udpSender", "classcom_1_1example_1_1trainawearapplication_1_1_classic_squat.html#af9d9055eef7e92d48f0f544bec3a7abd", null ]
+];
