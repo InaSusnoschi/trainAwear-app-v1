@@ -1,0 +1,13 @@
+<map id="com.example.trainawearapplication.ClassicSquat" name="com.example.trainawearapplication.ClassicSquat">
+<area shape="rect" id="node1" title=" " alt="" coords="1180,225,1409,266"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,29,137,56"/>
+<area shape="rect" id="node8" href="$classcom_1_1example_1_1trainawearapplication_1_1_main_activity.html" title="The MainActivity is the first activity on entering the app." alt="" coords="329,57,559,98"/>
+<area shape="rect" id="node3" href="$interfacecom_1_1example_1_1trainawearapplication_1_1_update_feedback.html" title=" " alt="" coords="797,225,1027,266"/>
+<area shape="rect" id="node4" href="$classcom_1_1example_1_1trainawearapplication_1_1_client_send.html" title="The ClientSend class declares an asynchronous task used to send messages from Workout activities." alt="" coords="797,290,1027,331"/>
+<area shape="rect" id="node5" title=" " alt="" coords="365,290,523,331"/>
+<area shape="rect" id="node6" href="$classcom_1_1example_1_1trainawearapplication_1_1_udp_client_handler.html" title=" " alt="" coords="797,107,1027,149"/>
+<area shape="rect" id="node7" title=" " alt="" coords="411,123,477,149"/>
+<area shape="rect" id="node9" title=" " alt="" coords="46,144,97,171"/>
+<area shape="rect" id="node10" title=" " alt="" coords="882,356,942,383"/>
+<area shape="rect" id="node11" title=" " alt="" coords="875,437,949,464"/>
+</map>
